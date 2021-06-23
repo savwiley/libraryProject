@@ -10,7 +10,7 @@ const loading = document.querySelector(".loading");
 //VALIDATES FORM
 const iTitle = document.getElementById("bookTitle");
 const iAuthor = document.getElementById("author");
-const iPages = document.getElementById("pages");
+const iWords = document.getElementById("words");
 const subBtn = document.getElementById("subBtn");
 
 iTitle.addEventListener("input", () => {
@@ -29,11 +29,11 @@ iAuthor.addEventListener("input", () => {
   }
 });
 
-iPages.addEventListener("input", () => {
-  if (iPages.validity.rangeUnderflow) {
-    iPages.setCustomValidity("Please input page numbers.");
+iWords.addEventListener("input", () => {
+  if (iWords.validity.rangeUnderflow) {
+    iWords.setCustomValidity("Please input page numbers.");
   } else {
-    iPages.setCustomValidity("");
+    iWords.setCustomValidity("");
   }
 });
 
@@ -50,13 +50,13 @@ subBtn.addEventListener("click", (e) => {
   if (
     iTitle.validity.valid &&
     iAuthor.validity.valid &&
-    iPages.validity.valid
+    iWords.validity.valid
   ) {
-    new Book(iTitle.value, iAuthor.value, iPages.value);
+    new Book(iTitle.value, iAuthor.value, iWords.value);
     storeArr();
     iTitle.value = "";
     iAuthor.value = "";
-    iPages.value = "";
+    iWords.value = "";
   }
 });
 
@@ -67,10 +67,10 @@ const randColor = () => {
 };
 
 //STORES BOOKS IN LIBRARY ARRAY
-function Book(title, author, pages) {
-  (this.title = title), (this.author = author), (this.pages = pages);
+function Book(title, author, words) {
+  (this.title = title), (this.author = author), (this.words = words);
 
-  myLibrary.push({ title, author, pages });
+  myLibrary.push({ title, author, words });
 
   //create card
   const displayBook = document.createElement("div");
@@ -87,7 +87,7 @@ function Book(title, author, pages) {
   function editButton(e) {
     iTitle.value = title;
     iAuthor.value = author;
-    iPages.value = pages;
+    iWords.value = words;
     edit = e.path[0].dataset.i;
   }
   displayBook.appendChild(editBtn);
@@ -125,11 +125,12 @@ function Book(title, author, pages) {
   displayBook.appendChild(displayBookAuthor);
   displayBookAuthor.setAttribute("id", "author");
   displayBookAuthor.textContent = author;
-  //page number
+  //word count
   const displayBookPages = document.createElement("div");
   displayBook.appendChild(displayBookPages);
-  displayBookPages.setAttribute("id", "pages");
-  displayBookPages.textContent = `${pages} Pages`;
+  displayBookPages.setAttribute("id", "words");
+  const wordNumb = words.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  displayBookPages.textContent = `${wordNumb} words`;
 
   //create read check
   //currently not remembered in server
@@ -147,7 +148,7 @@ function Book(title, author, pages) {
 async function getArr() {
   const docs = await firebase.firestore().collection("Books").get();
   docs.forEach((e) => {
-    new Book(e.data().title, e.data().author, e.data().pages);
+    new Book(e.data().title, e.data().author, e.data().words);
   });
   loading.remove();
 }
@@ -162,7 +163,7 @@ async function storeArr() {
     let data = {
       title: myLibrary[i].title,
       author: myLibrary[i].author,
-      pages: myLibrary[i].pages,
+      words: myLibrary[i].words,
     };
     await firebase.firestore().collection("Books").doc(data.title).set(data);
   }
