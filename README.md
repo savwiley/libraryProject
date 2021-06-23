@@ -2,7 +2,10 @@
 
 This project was made with Webpack & Firebase. Information about TOP's Library Project can be found [here](https://theodinproject.com/courses/javascript/lessons/library). However, after learning more about JS, I have gone back and added extra features to the project.
 
-[Preview my site here!](https://savwiley.github.io/library-project/dist/)
+[Preview my site here!](https://savwiley.github.io/libraryProject/dist/)
+
+# NOTICE
+There was a problem with the original repostiory for this app. It was so bad, that I lost nearly everything. This new repo holds the current iteration of this app. If you would like to see the original repo with more history of this app, go [here](https://github.com/savwiley/library-project).
 
 ## Extra Features
 
