@@ -104,6 +104,7 @@ function Book(title, author, words, readCount = 0) {
   //create edit button
   const editBtn = document.createElement("i");
   editBtn.setAttribute("class", "far fa-edit");
+  editBtn.setAttribute("title", "Edit");
   editBtn.setAttribute("data-i", myLibrary.length);
   editBtn.addEventListener("click", editButton);
   function editButton(e) {
@@ -120,6 +121,7 @@ function Book(title, author, words, readCount = 0) {
   displayBook.appendChild(delBtn);
   delBtn.textContent = "X";
   delBtn.setAttribute("id", "delete");
+  delBtn.setAttribute("title", "Delete");
   delBtn.setAttribute("data-i", myLibrary.length);
   delBtn.addEventListener("click", deleteButton);
   function deleteButton() {
@@ -137,6 +139,7 @@ function Book(title, author, words, readCount = 0) {
     "href",
     `https://www.google.com/search?q=${linkTitle}+novel`
   );
+  bookLink.setAttribute("title", `Google Search: ${title}`);
   displayBook.appendChild(bookLink);
   //title
   const displayBookTitle = document.createElement("div");
@@ -164,6 +167,7 @@ function Book(title, author, words, readCount = 0) {
   const readCountBtn = document.createElement("button");
   displayBook.appendChild(readCountBtn);
   readCountBtn.setAttribute("id", "readBtn");
+  readCountBtn.setAttribute("title", "I've Read This!");
   readCountBtn.textContent = "I've Read This!";
   readCountBtn.addEventListener("click", () => {
     myLibrary[index].readCount += 1;

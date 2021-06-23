@@ -156,6 +156,30 @@ button {
   color: #000;
 }
 
+/* SORTER */
+
+.dropdown {
+  display: block;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.dropdown label {
+  font-size: 14px;
+  cursor: default;
+}
+
+#sorter {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background: #fff;
+  padding: 2px;
+  cursor: pointer;
+}
+#sorter option:nth-child(2n) {
+  background: rgba(0,0,0,0.1);
+}
+
 /* BOOKS */
 
 .library {
@@ -206,6 +230,11 @@ button {
   margin-bottom: 10px;
 }
 
+#readCount {
+  margin: 5px 0 5px;
+  font-variant: small-caps;
+}
+
 #delete, .fa-edit {
   display: block;
   width: 25px;
@@ -219,7 +248,7 @@ button {
   cursor: pointer;
   transition: all 0.5s;
 }
-#delete:hover, .fa-edit:hover {
+#delete:hover, .fa-edit:hover, #readBtn:hover {
   background: rgba(255, 255, 255, 0.8);
 }
 
@@ -233,8 +262,12 @@ button {
   padding-top: 5px;
 }
 
-#read {
+#readBtn {
+  border: none;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.3);
   cursor: pointer;
+  transition: all 0.5s;
 }
 
 /* MOBILE */
