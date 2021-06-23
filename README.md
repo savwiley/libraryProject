@@ -7,6 +7,8 @@ This project was made with Webpack & Firebase. Information about TOP's Library P
 # NOTICE
 There was a problem with the original repostiory for this app. It was so bad, that I lost nearly everything. This new repo holds the current iteration of this app. If you would like to see the original repo with more history of this app, go [here](https://github.com/savwiley/library-project).
 
+If anything, I learned the value of backing up git before I start debugging.
+
 ## Extra Features
 
 - A universal library that holds book information on a Firebase server.
@@ -25,4 +27,4 @@ Dancing Script font from [Google Fonts](https://fonts.google.com/).
 
 ## License
 
-[MIT](https://github.com/savwiley/library-project/blob/master/LICENSE.txt)
+[MIT](https://github.com/savwiley/libraryProject/blob/master/LICENSE.txt)
