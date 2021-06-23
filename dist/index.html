@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Library App</title>
+
+    <link href="lib.css" rel="stylesheet" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/25a49a4783.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+
+    <span id="pageTitle">The Library</span>
+
+    <form id="libraryForm">
+      Title:
+      <input
+        type="text"
+        name="bookTitle"
+        id="bookTitle"
+        placeholder="The Hobbit"
+        minlength="1"
+        required
+      /><br />
+      Author:
+      <input
+        type="text"
+        name="author"
+        id="author"
+        placeholder="J.R.R. Tolkein"
+        minlength="1"
+        required
+      /><br />
+      # of Pages:
+      <input
+        type="number"
+        name="pages"
+        id="pages"
+        min="1"
+        minlength="1"
+        placeholder="295"
+        required
+      /><br />
+      <input type="submit" id="subBtn" value="Submit Book" />
+    </form>
+
+    <div class="information">The Library holds book information that has been inputted by anyone. The books submitted will always be here. Feel free to add your own books with the form above.<br /><br />
+    
+      <details><summary>F.A.Q.</summary><br />
+    <b>Want to add a book?</b> Use the form above to input your book's information. Please make sure the title is correct. When you click submit, your book will be added to The Library along with a Google search link to further information about your book.<br /><br />
+  
+    <b>See a mistake?</b> Click on the edit button on the top right of each card. The form above will fill with the provided information. You can change anything from there.<br /><br />
+  
+    <b>Found spam?</b> Books can be deleted by clicking on the X button on the top left of each card. Be careful! Once you click that button, the book is deleted forever (until someone adds it back to The Library).<br /><br />
+  
+    <b>Found a bug?</b> If you've found something wrong with the app or have an idea for new/better features, feel free to submit your issues <a href="https://github.com/savwiley/library-project/issues">here</a>.
+      </details></div>
+
+    <div class="library">
+      <div class="loading">
+        <div class="spinner">
+          <div class="bubble-1"></div>
+          <div class="bubble-2"></div>
+        </div>
+      </div>
+    </div>
+
+    <span id="credit">
+      <a href="https://github.com/savwiley/library-project">
+        by savwiley <i class="fab fa-github"></i>
+      </a>
+    </span>
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+
+    <script>
+      // For Firebase JavaScript SDK v7.20.0 and later, `measurementId` is an optional field
+      var firebaseConfig = {
+        apiKey: "AIzaSyCcPq3J_Yeex39izUWyerDoNRPan9XWwJw",
+        authDomain: "library-79cdb.firebaseapp.com",
+        projectId: "library-79cdb",
+        storageBucket: "library-79cdb.appspot.com",
+        messagingSenderId: "603775734043",
+        appId: "1:603775734043:web:47b551a4110cb35f2143be",
+        measurementId: "G-CGHSMSDCVY",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="bundle.js" type="text/javascript"></script>
+  </body>
+</html>

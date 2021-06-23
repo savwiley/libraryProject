@@ -1,0 +1,260 @@
+/* GENERAL */
+
+* {
+  margin: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #ebebeb;
+}
+
+input,
+button {
+  outline: none;
+}
+
+/* TITLE */
+
+#pageTitle {
+  float: left;
+  padding: 20px 0 0 10px;
+  font-size: 85px;
+  font-family: 'Dancing Script', sans-serif;
+  cursor: default;
+}
+
+/* CREDIT */
+
+#credit a {
+  text-align: center;
+  display: block;
+  width: fit-content;
+  margin: auto;
+  padding: 0 2px;
+  text-decoration: none;
+  color: rgb(102, 102, 102);
+  font-variant: small-caps;
+  letter-spacing: 2px;
+  font-size: 10px;
+  font-weight: bold;
+  transition: all 1s;
+}
+#credit a:hover {
+  background: rgb(102, 102, 102,0.5);
+  color: #ebebeb;
+}
+
+/* LOADING */
+
+.loading {
+  display: block;
+  width: 50%;
+  height: 25vw;
+  margin: auto;
+}
+.spinner {
+  position: relative;
+  width: 45px;
+  height: 45px;
+  margin: 0 auto;
+  animation: loadingI 2s linear infinite;
+}
+.bubble-1,
+.bubble-2 {
+  position: absolute;
+  top: 0;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  background-color: #000;
+  animation: bounce 2s ease-in-out infinite;
+}
+.bubble-2 {
+  top: auto;
+  bottom: 0;
+  animation-delay: -1s;
+}
+@keyframes loadingI {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+/* FORM */
+
+#libraryForm {
+  margin: 0 auto 10px;
+  border: 0px solid;
+  width: 30%;
+  text-align: right;
+}
+#libraryForm input {
+  margin: 5px 0;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+}
+#libraryForm input[type="text"],
+#libraryForm input[type="number"] {
+  background: #fff;
+}
+#libraryForm input[type="text"]:hover,
+#libraryForm input[type="number"]:hover {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+}
+#libraryForm input[type="submit"] {
+  cursor: pointer;
+  color: #000;
+  background: #fff;
+  background-size: 0;
+  transition: all 0.5s ease-in-out;
+}
+#libraryForm input[type="submit"]:hover {
+  background: linear-gradient(120deg, #fff, #eee);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 0% 50%;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+}
+#libraryForm input:invalid {
+  box-shadow: 2px 2px 2px rgba(143, 23, 23, 0.4);
+}
+
+/* INFO */
+
+.information {
+  width: 40vw;
+  background: rgba(0,0,0,0.1);
+  margin: 0 auto 20px;
+  padding: 10px;
+  text-align: justify;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-left: none;
+  border-right: none;
+  font-size: 12px;
+  cursor: default;
+}
+.information summary {
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  letter-spacing: 1px;
+  background: rgba(0,0,0,0.1);
+  text-align: center;
+}
+.information a{
+  color: #000;
+}
+
+/* BOOKS */
+
+.library {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 30px;
+}
+
+#book {
+  display: inline-block;
+  min-width: 100px;
+  height: 200px;
+  padding: 5px 10px 10px;
+  margin: 0 5px 10px;
+  border-radius: 25px;
+  text-align: center;
+  color: #ececec;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  text-shadow: 1px 1px 2px #000;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.2);
+  cursor: default;
+  transition: all 0.5s;
+}
+#book a {
+  color: #ececec;
+  text-decoration: none;
+}
+#book:hover {
+  z-index: 1;
+  transform: scale(1.3);
+  text-shadow: 1px 1px 2px #000, 2px 2px 2px rgba(0, 0, 0, 0.4),
+    3px 3px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+#title {
+  font-size: 25px;
+  font-family: Dancing Script;
+  margin: 10px 0;
+  padding-bottom: 10px;
+  border-bottom: 3px ridge;
+}
+#author {
+  margin-bottom: 10px;
+}
+#pages {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+#delete, .fa-edit {
+  display: block;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  left: 0px;
+  border: none;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.3);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+#delete:hover, .fa-edit:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.fa-edit {
+  color: #000;
+  text-shadow: none;
+  float: right;
+  font-weight: normal;
+  font-size: 13px;
+  height: 20px;
+  padding-top: 5px;
+}
+
+#read {
+  cursor: pointer;
+}
+
+/* MOBILE */
+
+@media (max-width: 1000px) {
+  #pageTitle {
+    float: none;
+    display: block;
+    text-align: center;
+  }
+  #libraryForm {
+    text-align: right;
+    width: 45%;
+  }
+  .information {
+    width: 80vw;
+  }
+}
+@media (max-width: 650px) {
+  #libraryForm {
+    width: 30%;
+  }
+}
