@@ -62,7 +62,7 @@ subBtn.addEventListener("click", (e) => {
 
 //gets random color
 const randColor = () => {
-  const color = Math.floor(Math.random() * 256);
+  const color = Math.floor(Math.random() * 230);
   return color;
 };
 
