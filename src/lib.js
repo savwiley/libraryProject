@@ -4,8 +4,27 @@ let myLibrary = [];
 //GRABBING DIVS
 const displayLibrary = document.querySelector(".library");
 const loading = document.querySelector(".loading");
+const sorter = document.querySelector("#sorter");
 
-//BOOK OBJECT
+//SORTER
+sorter.addEventListener("change", () => {
+  let books = document.querySelectorAll("#book");
+  books.forEach(e => {
+    e.remove();
+    loading.style.display = "block";
+  })
+  if (sorter.value === "titleZA") {
+    getArr("title", true);
+  } else if (sorter.value === "authorZA") {
+    getArr("author", true);
+  } else if (sorter.value === "wordsZA") {
+    getArr("words", true);
+  } else if (sorter.value === "readCountZA") {
+    getArr("readCount", true);
+  } else {
+    getArr(sorter.value, null)
+  }
+})
 
 //VALIDATES FORM
 const iTitle = document.getElementById("bookTitle");
@@ -156,14 +175,19 @@ function Book(title, author, words, readCount = 0) {
 }
 
 //FIRESTORE
-async function getArr() {
-  const docs = await firebase.firestore().collection("Books").get();
+async function getArr(order, desc) {
+  let docs
+  if (desc === true) {
+    docs = await firebase.firestore().collection("Books").orderBy(order, "desc").get();
+  } else {
+    docs = await firebase.firestore().collection("Books").orderBy(order).get();
+  }
   docs.forEach((e) => {
     new Book(e.data().title, e.data().author, e.data().words, e.data().readCount);
   });
-  loading.remove();
+  loading.style.display = "none";
 }
-getArr();
+getArr("title", null);
 
 async function deleteBook(title) {
   await firebase.firestore().collection("Books").doc(title).delete();
@@ -174,7 +198,7 @@ async function storeArr() {
     let data = {
       title: myLibrary[i].title,
       author: myLibrary[i].author,
-      words: myLibrary[i].words,
+      words: Number(myLibrary[i].words),
       readCount: myLibrary[i].readCount,
     };
     await firebase.firestore().collection("Books").doc(data.title).set(data);
