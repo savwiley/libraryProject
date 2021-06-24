@@ -9,10 +9,10 @@ const sorter = document.querySelector("#sorter");
 //SORTER
 sorter.addEventListener("change", () => {
   let books = document.querySelectorAll("#book");
-  books.forEach(e => {
+  books.forEach((e) => {
     e.remove();
     loading.style.display = "block";
-  })
+  });
   if (sorter.value === "titleZA") {
     getArr("title", true);
   } else if (sorter.value === "authorZA") {
@@ -22,9 +22,9 @@ sorter.addEventListener("change", () => {
   } else if (sorter.value === "readCountZA") {
     getArr("readCount", true);
   } else {
-    getArr(sorter.value, null)
+    getArr(sorter.value, null);
   }
-})
+});
 
 //VALIDATES FORM
 const iTitle = document.getElementById("bookTitle");
@@ -89,7 +89,10 @@ const randColor = () => {
 
 //STORES BOOKS IN LIBRARY ARRAY
 function Book(title, author, words, readCount = 0) {
-  (this.title = title), (this.author = author), (this.words = words), (this.readCount = readCount);
+  (this.title = title),
+    (this.author = author),
+    (this.words = words),
+    (this.readCount = readCount);
 
   myLibrary.push({ title, author, words, readCount });
   let index = myLibrary.length - 1;
@@ -174,27 +177,57 @@ function Book(title, author, words, readCount = 0) {
     displayBookCount.textContent = `read by ${readCount + 1} users`;
     readCountBtn.remove();
     storeArr();
-  })
-
+  });
 }
 
 //FIRESTORE
 async function getArr(order, desc) {
-  let docs
+  let docs;
   if (desc === true) {
-    docs = await firebase.firestore().collection("Books").orderBy(order, "desc").get();
+    try {
+      docs = await firebase
+        .firestore()
+        .collection("Books")
+        .orderBy(order, "desc")
+        .get();
+    } catch (err) {
+      alert(
+        `Something went wrong! Please use the link at the bottom of this page to submit an issue with this error & what you were trying to do: ${err}`
+      );
+    }
   } else {
-    docs = await firebase.firestore().collection("Books").orderBy(order).get();
+    try {
+      docs = await firebase
+        .firestore()
+        .collection("Books")
+        .orderBy(order)
+        .get();
+    } catch (err) {
+      alert(
+        `Something went wrong! Please use the link at the bottom of this page to submit an issue with this error & what you were trying to do: ${err}`
+      );
+    }
   }
   docs.forEach((e) => {
-    new Book(e.data().title, e.data().author, e.data().words, e.data().readCount);
+    new Book(
+      e.data().title,
+      e.data().author,
+      e.data().words,
+      e.data().readCount
+    );
   });
   loading.style.display = "none";
 }
 getArr("title", null);
 
 async function deleteBook(title) {
-  await firebase.firestore().collection("Books").doc(title).delete();
+  try {
+    await firebase.firestore().collection("Books").doc(title).delete();
+  } catch (err) {
+    alert(
+      `Something went wrong! Please use the link at the bottom of this page to submit an issue with this error & what you were trying to do: ${err}`
+    );
+  }
 }
 
 async function storeArr() {
@@ -205,6 +238,12 @@ async function storeArr() {
       words: Number(myLibrary[i].words),
       readCount: myLibrary[i].readCount,
     };
-    await firebase.firestore().collection("Books").doc(data.title).set(data);
+    try {
+      await firebase.firestore().collection("Books").doc(data.title).set(data);
+    } catch (err) {
+      alert(
+        `Something went wrong! Please use the link at the bottom of this page to submit an issue with this error & what you were trying to do: ${err}`
+      );
+    }
   }
 }
