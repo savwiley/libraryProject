@@ -10,18 +10,17 @@
       rel="stylesheet"
     />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
 
     <script
       src="https://kit.fontawesome.com/25a49a4783.js"
       crossorigin="anonymous"
     ></script>
   </head>
-  <body>
-
+  <body id="top">
     <span id="pageTitle">The Library</span>
 
     <form id="libraryForm">
@@ -56,21 +55,41 @@
       <input type="submit" id="subBtn" value="Submit Book" />
     </form>
 
-    <div class="information">The Library holds book information that has been inputted by anyone. The books submitted will always be here, along with Google search links with further information about each novel. Feel free to add your own books with the form above.<br /><br />
-    
-      <details><summary>F.A.Q.</summary><br />
-    <b>Want to add a book?</b> Use the form above to input your book's information. Please make sure the title is correct. When you click submit, your book will be added to The Library. Please wait a few seconds before refreshing the page after adding new content.<br /><br />
+    <div class="information">
+      The Library holds book information that has been inputted by anyone. The
+      books submitted will always be here, along with Google search links with
+      further information about each novel. Feel free to add your own books with
+      the form above.<br /><br />
 
-    <b>Already read a book?</b> Tell us about it! Click on the "I've Read This!" button on any book you've already read to add your number to the growing tally.<br /><br />
-  
-    <b>See a mistake?</b> Click on the edit button on the top right of each card. The form above will fill with the provided information. You can change anything from there. Please wait a few seconds before refreshing the page after editing content.<br /><br />
-  
-    <b>Found spam?</b> Books can be deleted by clicking on the X button on the top left of each card. Be careful! Once you click that button, the book is deleted forever (until someone adds it back to The Library).<br /><br />
-  
-    <b>Found a bug?</b> If you've found something wrong with the app or have an idea for new/better features, feel free to submit your issues <a href="https://github.com/savwiley/libraryProject/issues">here</a>.<br /><br />
-  
-    <b>Interested in how this was made?</b> You can find more techincal information about this app <a href="https://github.com/savwiley/libraryProject">here</a>.
-      </details></div>
+      <details>
+        <summary>F.A.Q.</summary>
+        <br />
+        <b>Want to add a book?</b> Use the form above to input your book's
+        information. Please make sure the title is correct. When you click
+        submit, your book will be added to The Library. Please wait a few
+        seconds before refreshing the page after adding new content.<br /><br />
+
+        <b>Already read a book?</b> Tell us about it! Click on the "I've Read
+        This!" button on any book you've already read to add your number to the
+        growing tally.<br /><br />
+
+        <b>See a mistake?</b> Click on the edit button on the top right of each
+        card. The form above will fill with the provided information. You can
+        change anything from there. Please wait a few seconds before refreshing
+        the page after editing content.<br /><br />
+
+        <b>Found spam?</b> Books can be deleted by clicking on the X button on
+        the top left of each card. Be careful! Once you click that button, the
+        book is deleted forever (until someone adds it back to The Library).<br /><br />
+
+        <b>Found a bug?</b> If you've found something wrong with the app or have
+        an idea for new/better features, feel free to submit your issues <a href="https://github.com/savwiley/libraryProject/issues">here</a
+        >.<br /><br />
+
+        <b>Interested in how this was made?</b> You can find more techincal
+        information about this app <a href="https://github.com/savwiley/libraryProject">here</a>.
+      </details>
+    </div>
 
     <div class="dropdown">
       <label for="sort">Sort By:</label>
@@ -101,9 +120,15 @@
       </a>
     </span>
 
+    <div class="toTop">
+      <a href="#top">
+        <i class="fas fa-arrow-circle-up"></i>
+      </a>
+    </div>
+
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
-    
+
     <!-- Add Firebase products that you want to use -->
     <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
 

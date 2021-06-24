@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   background: #ebebeb;
 }
 
@@ -20,7 +20,7 @@ button {
   float: left;
   padding: 20px 0 0 10px;
   font-size: 85px;
-  font-family: 'Dancing Script', sans-serif;
+  font-family: "Dancing Script", sans-serif;
   cursor: default;
 }
 
@@ -41,8 +41,24 @@ button {
   transition: all 1s;
 }
 #credit a:hover {
-  background: rgb(102, 102, 102,0.5);
+  background: rgb(102, 102, 102, 0.5);
   color: #ebebeb;
+}
+
+/* TOP LINK */
+
+.toTop a {
+  color: rgb(102, 102, 102, 0.5);
+  font-size: 35px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  position: fixed;
+  bottom: 0;
+  right: 5px;
+  transition: all 1s;
+}
+.toTop a:hover {
+  color: rgb(102, 102, 102);
+  bottom: 10px;
 }
 
 /* LOADING */
@@ -134,11 +150,11 @@ button {
 
 .information {
   width: 40vw;
-  background: rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.1);
   margin: 0 auto 20px;
   padding: 10px;
   text-align: justify;
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-left: none;
   border-right: none;
   font-size: 12px;
@@ -149,10 +165,10 @@ button {
   outline: none;
   cursor: pointer;
   letter-spacing: 1px;
-  background: rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.1);
   text-align: center;
 }
-.information a{
+.information a {
   color: #000;
 }
 
@@ -177,7 +193,7 @@ button {
   cursor: pointer;
 }
 #sorter option:nth-child(2n) {
-  background: rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 /* BOOKS */
@@ -235,7 +251,8 @@ button {
   font-variant: small-caps;
 }
 
-#delete, .fa-edit {
+#delete,
+.fa-edit {
   display: block;
   width: 25px;
   height: 25px;
@@ -248,7 +265,9 @@ button {
   cursor: pointer;
   transition: all 0.5s;
 }
-#delete:hover, .fa-edit:hover, #readBtn:hover {
+#delete:hover,
+.fa-edit:hover,
+#readBtn:hover {
   background: rgba(255, 255, 255, 0.8);
 }
 
